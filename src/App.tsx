@@ -8,22 +8,27 @@ export type TasksType = {
 }
 
 
-const tasks1: Array<TasksType> = [
+let tasks1: Array<TasksType> = [
     { id:1, title: 'HTML', isDone: false  },
     { id:2, title: 'JS', isDone: false  },
-    { id:3, title: 'Css', isDone: false  }
+    { id:3, title: 'Css', isDone: false  },
+    { id:4, title: 'Rest Api', isDone: false  },
+    { id:5, title: 'Graph Ql', isDone: false  }
 ]
-const  tasks2: Array<TasksType> = [
-    { id:1, title: 'Beer', isDone: false  },
-    { id:2, title: 'Fish', isDone: false  },
-    { id:3, title: 'Cheeps', isDone: false  }
-]
+function removeTask (id: number) {
+   tasks1 = tasks1.filter((t) => t.id !== id
+    )
+    console.log(tasks1)
+
+}
 
 function App() {
     return (
         <div className="App">
-            <TodoList title ={'What to learn'} task={tasks1} />
-            <TodoList title ={'Songs'} task={tasks2} />
+            <TodoList title ={'What to learn'}
+                      task={tasks1}
+                      removeTask={removeTask}/>
+
 
         </div>
     );
